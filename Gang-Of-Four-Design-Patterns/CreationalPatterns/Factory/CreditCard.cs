@@ -1,8 +1,8 @@
 ﻿namespace Gang_Of_Four_Design_Patterns.CreationalPatterns.Factory
 {
-    /**
-     * One of the so-called "product" classes
-     */
+    /// <summary>
+    /// Provides implementation of the IBankCard interface.
+    /// </summary>
     public class CreditCard : IBankCard
     {
         private float _balance;
@@ -16,9 +16,14 @@
             _cashBackRate = cashBackRate;
         }
 
+        public float CheckBalance()
+        {
+            return _balance;
+        }
+
         public void Deposit(float amount)
         {
-            _balance =- amount;
+            _balance += amount;
             System.Console.WriteLine($"Deposit: {amount}$. Balance: {_balance}$");
         }
 
@@ -37,7 +42,7 @@
                     $"Limit for this credit card: {_limit}");
                 return;
             }
-            _balance =- amount;
+            _balance -= amount;
             System.Console.WriteLine($"{amount}$ has been withdrawn. Balance: {_balance}$");
         }
     }

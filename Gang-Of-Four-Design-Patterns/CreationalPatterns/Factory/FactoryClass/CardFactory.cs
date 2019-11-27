@@ -21,7 +21,6 @@ namespace Gang_Of_Four_Design_Patterns.CreationalPatterns.Factory.FactoryClass
                     return new DebitCard(500);
                 default:
                     throw new NotSupportedException();
-
             }
         }
     }

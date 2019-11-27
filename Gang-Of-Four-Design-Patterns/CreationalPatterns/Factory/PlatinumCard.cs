@@ -4,7 +4,10 @@ using System.Text;
 
 namespace Gang_Of_Four_Design_Patterns.CreationalPatterns.Factory
 {
-    class PlatinumCard : IBankCard
+    /// <summary>
+    /// Provides implementation of the IBankCard interface.
+    /// </summary>
+    public class PlatinumCard : IBankCard
     {
         private float _balance;
         private float _cashBackRate;
@@ -15,9 +18,14 @@ namespace Gang_Of_Four_Design_Patterns.CreationalPatterns.Factory
             _cashBackRate = cashBackRate;
         }
 
+        public float CheckBalance()
+        {
+            return _balance;
+        }
+
         public void Deposit(float amount)
         {
-            _balance = -amount;
+            _balance += amount;
             System.Console.WriteLine($"Deposit: {amount}$. Balance: {_balance}$");
         }
 
@@ -29,7 +37,7 @@ namespace Gang_Of_Four_Design_Patterns.CreationalPatterns.Factory
 
         public void Withdraw(float amount)
         {
-            _balance = -amount;
+            _balance -= amount;
             System.Console.WriteLine($"{amount}$ has been withdrawn. Balance: {_balance}$");
         }
     }
